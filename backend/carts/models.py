@@ -1,3 +1,7 @@
 from django.db import models
+from authentication.models import User
 
-# Create your models here.
+class Cart(models.Model):
+    user=models.ForeignKay(User, on_delete=models.CASCADE)
+    game
+    payment_processed=models.BooleanField(default=False)
