@@ -1,5 +1,4 @@
 from django.db import models
-from authentication.models import User
 
 class Game(models.Model):
     title=models.CharField(max_length=255)
