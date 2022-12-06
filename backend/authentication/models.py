@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     street=models.CharField(max_length=200, default="N/A")
     city=models.CharField(max_length=200, default="N/A")
-    State=models.CharField(max_length=200, default="N/A")
+    state=models.CharField(max_length=200, default="N/A")
     zip=models.IntegerField(default="99999")
     '''
     This is a custom version of the built in User class
