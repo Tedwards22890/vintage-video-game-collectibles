@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -152,6 +153,15 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(days=10),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=20),
 }
+
+STATIC_URL = '/static/'
+MEDIA_ROOT = '/media/'
+
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+
+STATICFILES_DIRS= (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 try:
     from drf_jwt_backend.local_settings import *
