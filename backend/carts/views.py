@@ -23,7 +23,7 @@ def cart_by_id(request, pk):
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     cart = get_object_or_404(Cart, pk=pk)
     if request.method == 'GET':
-        carts = Cart.objects.filter(user_id=request.user.id)
+        cart = Cart.objects.filter(user_id=request.user.id)
         serializer = CartSerializer(cart, many=True)
         return Response(serializer.data)
     elif request.method == 'DELETE':
