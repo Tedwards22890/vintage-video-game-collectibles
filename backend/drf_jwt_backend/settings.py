@@ -154,14 +154,10 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=20),
 }
 
-STATIC_URL = '/static/'
-MEDIA_ROOT = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS= (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 try:
     from drf_jwt_backend.local_settings import *

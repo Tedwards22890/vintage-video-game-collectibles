@@ -3,6 +3,9 @@ from authentication.models import User
 
 #Note charfields are adjusted for efficiency
 
+def upload_path(filename):
+    return '/'.join(['images', filename])
+
 
 
 class Game(models.Model):
@@ -14,11 +17,11 @@ class Game(models.Model):
     factory_sealed=models.BooleanField(default=False)
     console=models.CharField(max_length=255)
     version=models.DecimalField(max_digits=10, decimal_places=8)
-    image1 = models.ImageField(null=True, blank=True, upload_to="images/")
-    image2 = models.ImageField(null=True, blank=True, upload_to="images/")
-    image3 = models.ImageField(null=True, blank=True, upload_to="images/")
-    image4 = models.ImageField(null=True, blank=True, upload_to="images/")
-    image5 = models.ImageField(null=True, blank=True, upload_to="images/")
+    image1 = models.ImageField(null=True, blank=True, upload_to=upload_path)
+    image2 = models.ImageField(null=True, blank=True, upload_to=upload_path)
+    image3 = models.ImageField(null=True, blank=True, upload_to=upload_path)
+    image4 = models.ImageField(null=True, blank=True, upload_to=upload_path)
+    image5 = models.ImageField(null=True, blank=True, upload_to=upload_path)
 
     def __str__(self):
         return self.title + ' - ' + self.description
