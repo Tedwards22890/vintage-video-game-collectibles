@@ -32,7 +32,7 @@ const [currentGame, setCurrentGame] = useState([])
           }
         />
         <Route
-        path=":game_id/" element={
+        path="games/:gameId/" element={
           <PrivateRoute>
             <GamePage currentGame={currentGame} />
           </PrivateRoute>

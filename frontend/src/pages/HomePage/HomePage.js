@@ -13,6 +13,7 @@ const HomePage = ( props ) => {
   const [cars, setCars] = useState([]);
   const [games, setGames] = useState([]);
 
+
   useEffect(() => {
     const fetchGames = async () => {
       try {
@@ -36,15 +37,16 @@ const HomePage = ( props ) => {
   }
 
 
+
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
       {games &&
-        games.map((games) => (
-          <p key={games.id}>
-            <Link to={`games/${games.id}`}>
-              <button type="button" onClick={() => handleButtonClick(games)}>
-            {games.id} {games.title} <img src={`http://127.0.0.1:8000${games.image1}`} />  
+        games.map((game) => (
+          <p key={game.id}>
+            <Link to={`games/${game.id}/`}>
+              <button type="button" onClick={() => handleButtonClick(game)}>
+            {game.id} {game.title} <img src={`http://127.0.0.1:8000${game.image1}`} />  
             </button>
             </Link>
             </p>
