@@ -14,14 +14,10 @@ class Game(models.Model):
     description=models.TextField(default="Include a description of condition and other relevant information...")
     cost=models.DecimalField(max_digits=6, decimal_places=2)
     year=models.DateField()
-    factory_sealed=models.BooleanField(default=False)
     console=models.CharField(max_length=255)
     version=models.DecimalField(max_digits=10, decimal_places=8)
-    image1 = models.ImageField(null=True, blank=True, upload_to=upload_path)
-    image2 = models.ImageField(null=True, blank=True, upload_to=upload_path)
-    image3 = models.ImageField(null=True, blank=True, upload_to=upload_path)
-    image4 = models.ImageField(null=True, blank=True, upload_to=upload_path)
-    image5 = models.ImageField(null=True, blank=True, upload_to=upload_path)
+    image = models.ImageField(null=True, blank=True, upload_to=upload_path)
+
 
     def __str__(self):
         return self.title + ' - ' + self.description

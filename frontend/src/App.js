@@ -28,6 +28,7 @@ const [currentGame, setCurrentGame] = useState([])
           element={
             <PrivateRoute>
               <HomePage setCurrentGame={setCurrentGame} />
+              <p>Current Game: {currentGame}</p>
             </PrivateRoute>
           }
         />

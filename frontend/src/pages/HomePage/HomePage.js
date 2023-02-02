@@ -1,7 +1,8 @@
 import React, {useRef} from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import "./Homepage.css";
 
 import axios from "axios";
 
@@ -12,6 +13,7 @@ const HomePage = ( props ) => {
   const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
   const [games, setGames] = useState([]);
+  
 
 
   useEffect(() => {
@@ -39,18 +41,20 @@ const HomePage = ( props ) => {
 
 
   return (
+    <div className="links"> 
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
       {games &&
-        games.map((game) => (
-          <p key={game.id}>
-            <Link to={`games/${game.id}/`}>
-              <button type="button" onClick={() => handleButtonClick(game)}>
-            {game.id} {game.title} <img src={`http://127.0.0.1:8000${game.image1}`} />  
+        games.map((games) => (
+          <p key={games.id}>
+            <Link to={`games/${games.id}/`}>
+              <button type="button" onClick={() => handleButtonClick(games)}>
+            {games.title} <img src={`http://127.0.0.1:8000${games.image}`} />  
             </button>
             </Link>
             </p>
         ))}
+    </div>
     </div>
   );
 };

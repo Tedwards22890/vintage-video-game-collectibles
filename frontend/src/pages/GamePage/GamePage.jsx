@@ -7,14 +7,14 @@ import useAuth from "../../hooks/useAuth";
 
 const GamePage = (props) => {
 
-    const [currentGame, setCurrentGame] = useState(null)
+    const [currentGame, setCurrentGame] = useState([])
     const [user, token] = useAuth();
     const {gameId} = useParams();
 
 async function displayGame() {
     try {
         let response = await axios.get(
-            `http://127.0.0.1:8000${gameId.image1}`
+            `http://127.0.0.1:8000${gameId.image}`
         );
         setCurrentGame(response.data.items);
         console.log(response.data.items);
@@ -27,7 +27,8 @@ async function displayGame() {
         <div>
         <h1> Some Text!</h1>
         <p>
-            Game Name: {currentGame.title}
+            Game image: <img src={`http://127.0.0.1:8000${props.currentGame.image}`} /> 
+            Game Name: {props.currentGame.title}
         </p>
         </div>
 
